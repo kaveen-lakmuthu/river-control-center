@@ -9,7 +9,8 @@ Controls.ScrollView {
     contentWidth: availableWidth
 
     ColumnLayout {
-        width: page.availableWidth
+        width: Math.min(page.availableWidth, 1180)
+        x: Math.max(0, (page.availableWidth - width) / 2)
         spacing: Kirigami.Units.largeSpacing
 
         Item { implicitHeight: Kirigami.Units.smallSpacing }
@@ -33,7 +34,7 @@ Controls.ScrollView {
                 Layout.fillWidth: true
                 wrapMode: Text.WordWrap
                 color: settingsController.text
-                text: qsTr("This first version manages the shared palette, River borders and rivertile spacing. Settings are saved atomically and the previous ten versions are retained as backups.")
+                text: qsTr("This version manages the shared palette, River and rivertile appearance, Waybar and panel layout, power and idle behavior, and input devices. Settings are saved atomically and the previous ten versions are retained as backups.")
             }
             Controls.Label {
                 Layout.fillWidth: true
@@ -52,7 +53,7 @@ Controls.ScrollView {
 
             Controls.Label {
                 color: settingsController.text
-                text: qsTr("Displays  •  Input  •  Power and idle  •  Startup  •  Diagnostics")
+                text: qsTr("Displays  •  Startup  •  Diagnostics")
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
             }

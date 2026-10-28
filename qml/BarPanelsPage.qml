@@ -23,6 +23,8 @@ Controls.ScrollView {
             Layout.fillWidth: true
         }
         Controls.SpinBox {
+            Layout.minimumWidth: 120
+            Layout.maximumWidth: 120
             from: parent.minimum
             to: parent.maximum
             value: parent.currentValue
@@ -30,6 +32,8 @@ Controls.ScrollView {
             onValueModified: parent.edited(value)
         }
         Controls.Label {
+            Layout.minimumWidth: 70
+            Layout.maximumWidth: 70
             visible: parent.suffix.length > 0
             text: parent.suffix
             color: settingsController.mutedText
@@ -37,7 +41,8 @@ Controls.ScrollView {
     }
 
     ColumnLayout {
-        width: page.availableWidth
+        width: Math.min(page.availableWidth, 1180)
+        x: Math.max(0, (page.availableWidth - width) / 2)
         spacing: Kirigami.Units.largeSpacing
 
         Item { implicitHeight: Kirigami.Units.smallSpacing }
@@ -129,7 +134,7 @@ Controls.ScrollView {
 
             RowLayout {
                 Layout.fillWidth: true
-                Controls.Label { text: qsTr("Clock format"); color: settingsController.text; Layout.preferredWidth: 150 }
+                Controls.Label { text: qsTr("Clock format"); color: settingsController.text; Layout.minimumWidth: 180; Layout.maximumWidth: 180 }
                 Controls.TextField {
                     Layout.fillWidth: true
                     text: settingsController.clockFormat

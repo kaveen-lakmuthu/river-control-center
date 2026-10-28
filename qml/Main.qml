@@ -112,7 +112,11 @@ Controls.ApplicationWindow {
                         { label: qsTr("Appearance"), icon: "preferences-desktop-theme", page: 0 },
                         { label: qsTr("Windows"), icon: "preferences-system-windows", page: 1 },
                         { label: qsTr("Bar & Panels"), icon: "view-list-icons", page: 2 },
-                        { label: qsTr("About"), icon: "help-about", page: 3 }
+                        { label: qsTr("Power & Idle"), icon: "preferences-system-power-management", page: 3 },
+                        { label: qsTr("Input"), icon: "preferences-desktop-peripherals", page: 4 },
+                        { label: qsTr("Keybindings"), icon: "preferences-desktop-keyboard-shortcuts", page: 5 },
+                        { label: qsTr("Session & Startup"), icon: "system-run", page: 6 },
+                        { label: qsTr("About"), icon: "help-about", page: 7 }
                     ]
 
                     delegate: Controls.Button {
@@ -161,6 +165,10 @@ Controls.ApplicationWindow {
                 AppearancePage {}
                 WindowsPage {}
                 BarPanelsPage {}
+                PowerIdlePage {}
+                InputPage {}
+                KeybindingsPage {}
+                SessionPage {}
                 AboutPage {}
             }
         }
